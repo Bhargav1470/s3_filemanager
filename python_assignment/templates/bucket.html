@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  -->
+    <style>
+        h1 {
+            text-align: center;
+            margin-top: 4%;
+            margin-bottom: 4%;
+            color: deeppink;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 4%;
+            margin-bottom: 4%;
+            color: red;
+        }
+
+        .box {
+            border: solid rgb(0, 26, 0);
+            border-radius: 10px;
+            height: 200px;
+            width: 700px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .createdel {
+            margin-left: 150px;
+            font-size: 20px;
+            
+        }
+        body{
+            background-image:url('https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        a.home{
+            top: 150px;
+            margin-left: 170px;
+            position: relative;
+            top: -90px;
+            font-size:18px;
+            
+        }
+        
+
+        
+    </style>
+    <title>Cr/Del buk</title>
+</head>
+
+<body>
+    <h1><u>To create/delete a bucket</u></h1>
+
+
+    
+    {% for message in get_flashed_messages() %}
+    <h2>{{ message }}</h2>
+    {% endfor %}
+    <div > <a href="/" class="home">Home</a> </div>
+
+
+    <center>
+        <div class="box">
+            <form method="POST" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label for="bucketName">Enter name of the bucket :</label>
+                    <input type="text" class="form-control" id="bucketName" name="bucketName" required>
+                </div><br>
+                <div class="createdel">
+                    <!-- <a href="createBucket"> -->
+                    <button formaction="createBucket" type="submit">
+                        Create</button>
+                    </a>
+                    <!-- <a href="delBucket"> -->
+                    <button formaction="delBucket" type="submit">
+                        Delete</button>
+                    </a>
+                </div>
+
+            </form>
+        </div>
+
+    </center>
+
+
+
+
+
+
+
+</body>
+
+
+</html>

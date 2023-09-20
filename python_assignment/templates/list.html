@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <title>list buckets</title>
+    <style>
+        h1 {
+            text-align: center;
+            margin-top: 4%;
+            color: rgb(3, 3, 3);
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 4%;
+            margin-bottom: 4%;
+            color: red;
+        }
+
+        div.container {
+            text-align: left ;
+            position: relative;
+            left: 480px;
+            margin-top: 1%;
+            color: rgb(131, 17, 2);
+            font-size: 20px;
+        }
+
+        ol.myOL {
+            display: inline-block;
+            text-align: left;
+        }
+        body{
+            background-image: url('https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        a.home{
+            position: relative;
+            top: 80px;
+            margin-left: 200px;
+            font-size:18px;
+            color: rgb(5, 102, 78);
+        }
+        
+
+    </style>
+</head>
+
+<body>
+
+    <div > <a href="/" class="home">Home</a> </div>
+    
+    {% if listOfBuckets|length != 0 %}
+    <h1> <u>list of S3 buckets</u></h1>
+    <div class="container">
+        <ol class="myOL">
+            {% for item in listOfBuckets %}
+            <li>
+                <h3>{{item}}</h3>
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+    {% else %}
+    {% for message in get_flashed_messages() %}
+    <h2>{{ message }}</h2>
+    {% endfor %}
+    {% endif %}
+
+</body>
+
+</html>
